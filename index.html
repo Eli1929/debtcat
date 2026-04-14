@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DebtCat • $DEBT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+       
+        :root {
+            --primary: #ffcc00;
+            --dark: #0a0a0a;
+            --gray: #1a1a1a;
+        }
+       
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+       
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--dark);
+            color: #eee;
+            line-height: 1.6;
+        }
+       
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+       
+        .logo {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -2px;
+        }
+       
+        .nav-links a {
+            color: #ddd;
+            margin-left: 35px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+       
+        .nav-links a:hover { color: var(--primary); }
+        header {
+            height: 100vh;
+            min-height: 720px;
+            background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)),
+                        url('https://i.ibb.co/XrkHC05Q/IMG-7446.jpg') center 35% / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+       
+        .hero-content {
+            max-width: 920px;
+            padding: 0 25px;
+        }
+       
+        .hero-content h1 {
+            font-size: clamp(3rem, 7.5vw, 5.8rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 12px;
+        }
+       
+        .ticker {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+       
+        .hero-content p {
+            font-size: 1.45rem;
+            max-width: 720px;
+            margin: 0 auto 45px;
+            opacity: 0.92;
+        }
+       
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+       
+        .btn {
+            padding: 18px 58px;
+            border-radius: 60px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+       
+        .btn-primary {
+            background: var(--primary);
+            color: #000;
+        }
+       
+        .btn-primary:hover {
+            transform: translateY(-6px) scale(1.05);
+        }
+       
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary);
+        }
+       
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #000;
+        }
+        .coming-soon {
+            background: #333;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+       
+        .social-links a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+       
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        .memes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 80px 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+       
+        .meme-card {
+            background: var(--gray);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+       
+        .meme-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255, 204, 0, 0.3);
+        }
+       
+        .meme-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+       
+        .meme-card .content {
+            padding: 28px;
+        }
+       
+        .meme-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+       
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+            font-size: 1rem;
+            border-top: 1px solid #333;
+        }
+       
+        footer p {
+            margin-bottom: 12px;
+        }
+       
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 5%;
+            }
+            .nav-links a {
+                margin-left: 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">DebtCat</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#memes">Memes</a>
+            <a href="#buy">Buy $DEBT</a>
+        </div>
+    </nav>
+    <header id="home">
+        <div class="hero-content">
+            <h1>DebtCat</h1>
+            <p class="ticker">$DEBT</p>
+           
+            <p>The grumpy CEO of the crypto world.<br>
+            Burn taxes. Rip paperwork. Stack gains.</p>
+           
+            <div class="buttons">
+                <a href="https://pump.fun/DEINE_PUMP_FUN_LINK_HIER"
+                   target="_blank"
+                   class="btn btn-primary">
+                    Buy $DEBT on Pump.fun →
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/EB_Cryptoo" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://t.me/DEIN_TELEGRAM_LINK_HIER" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+           
+            <p style="margin-top: 15px; color: #888;">Join the chaos</p>
+        </div>
+    </header>
+    
+    <section id="memes">
+        <h2 style="text-align: center; font-size: 3rem; color: var(--primary); padding: 80px 20px 20px;">The DebtCat Collection</h2>
+        
+        <p style="text-align: center; max-width: 820px; margin: 0 auto 30px; font-size: 1.35rem; opacity: 0.9; line-height: 1.5;">
+            The best memes and pictures from the community will be featured here.
+        </p>
+
+        <div style="text-align: center; margin-bottom: 70px;">
+            <a href="#" class="btn btn-outline coming-soon" style="font-size: 1.25rem; padding: 18px 58px;">
+                More Coming Soon
+            </a>
+        </div>
+       
+        <div class="memes-grid">
+            <div class="meme-card">
+                <img src="https://i.ibb.co/XrkHC05Q/IMG-7446.jpg" alt="DebtCat Boss">
+                <div class="content">
+                    <h3>The Real Boss</h3>
+                    <p>Annoyed by taxes, paperwork and bullshit — but always dressed for success.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/4wrgf7X7/IMG-7449.jpg" alt="Angry Cat">
+                <div class="content">
+                    <h3>Time to Rip</h3>
+                    <p>Tax form? Shredded. Gains? Caught mid-air.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/4wfFhPP3/IMG-7448.jpg" alt="Debt Bag">
+                <div class="content">
+                    <h3>Debt Bag</h3>
+                    <p>Surrounded by debt but still looking cute.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/G4dxRc2m/IMG-7445.jpg" alt="Paper Pile">
+                <div class="content">
+                    <h3>King of the Paper Pile</h3>
+                    <p>Still annoyed. Still here. One coin in the paw.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/Jwpy1g8y/IMG-7443.jpg" alt="Shocked Cat">
+                <div class="content">
+                    <h3>Tax Shock</h3>
+                    <p>“This can’t be serious…”</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/SDJMBHqB/IMG-7444.jpg" alt="Overwhelmed Cat">
+                <div class="content">
+                    <h3>Paper Mountain</h3>
+                    <p>The paperwork is winning… for now.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/PGqCLxWC/IMG-7439.jpg" alt="DebtCat Style">
+                <div class="content">
+                    <h3>DebtCat Style</h3>
+                    <p>The only cat that makes debt fun.</p>
+                </div>
+            </div>
+            <div class="meme-card">
+                <img src="https://i.ibb.co/rGJ5skLj/2492-A9-D4-6-B6-E-4-BCA-B1-BC-1-A8-E031-D61-BE.jpg" alt="Debt Mode">
+                <div class="content">
+                    <h3>Debt Mode</h3>
+                    <p>When the bills keep coming.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="buy" style="background: linear-gradient(135deg, #1a1a1a, #0a0a0a); padding: 140px 20px; text-align: center;">
+        <h2 style="font-size: 3.2rem; color: var(--primary); margin-bottom: 40px;">Ready to join the chaos?</h2>
+       
+        <a href="https://pump.fun/DEINE_PUMP_FUN_LINK_HIER" target="_blank"
+           class="btn btn-primary" style="font-size: 1.4rem; padding: 26px 90px;">
+            Buy $DEBT on Pump.fun
+        </a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2026 DebtCat • $DEBT. All rights reserved.</p>
+        <p style="font-size: 0.95rem; opacity: 0.7;">
+            $DEBT is a meme coin for entertainment purposes only.<br>
+            Not financial advice. DYOR. Taxes suck, but gains don’t.
+        </p>
+        <p style="margin-top: 30px; font-size: 1.4rem; color: var(--primary);">
+            Built with chaos and cat vibes 🐱💰
+        </p>
+    </footer>
+</body>
+</html>
